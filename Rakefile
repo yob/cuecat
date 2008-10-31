@@ -56,7 +56,7 @@ spec = Gem::Specification.new do |s|
     "CHANGELOG"
   ]
 
-  spec.add_dependency('ean13', '>= 1.0')
+  s.add_dependency('ean13', '>= 1.0')
 end
 
 Rake::GemPackageTask.new(spec) do |p|
