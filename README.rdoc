@@ -1,0 +1,26 @@
+A small class for decoding the values returned when scanning a barcode with
+the cheaply available cuecat scanner.
+
+= Installation
+
+gem install cuecat
+
+= Usage
+
+    code = CueCat.new(".C3nZC3nZC3n2CNjXCNz0DxnY.cGen.ENr7CNT3Chz3ENj1CG.")
+    puts code.code_type
+    => "IBN"
+    puts code.id
+    => "000000005112157601"
+    puts code.value
+    => "978184354916"
+
+= Further Reader
+
+- http://en.wikipedia.org/wiki/Cuecat
+- http://www.librarything.com/wiki/index.php/CueCat
+
+= Contributing
+
+Source code is publicly available @ http://github.com/yob/cuecat/tree/master.
+Patches welcome, preferably via a git repo I can pull from.
