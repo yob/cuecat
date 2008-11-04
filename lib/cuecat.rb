@@ -1,5 +1,6 @@
 require 'base64'
 require 'ean13'
+require 'upc'
 
 # An extra simple class for decoding a cuecat code into
 # its components.
@@ -45,6 +46,10 @@ class CueCat
     def ean?(code)
       self.new(code).ean?
     end
+
+    def upc?(code)
+      self.new(code).upc?
+    end
   end
 
   # process a new cuecat code
@@ -66,6 +71,11 @@ class CueCat
   def ean?
     return false if @value.nil?
     EAN13.valid?(@value)
+  end
+
+  def upc?
+    return false if @value.nil?
+    UPC.valid?(@value)
   end
 
   private

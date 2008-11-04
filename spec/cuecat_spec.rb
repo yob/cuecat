@@ -23,11 +23,15 @@ describe "The CueCat class" do
   end
 
   it "should correctly detect valid codes" do
+    # EAN
     CueCat.valid?(".C3nZC3nZC3n2CNjXCNz0DxnY.cGf2.ENr7C3j3C3f7Dxr7DxzYDNnZ.").should be_true
     CueCat.valid?(".C3nZC3nZC3n2CNjXCNz0DxnY.cGen.ENr7C3T1E3DZDxPWCW.").should be_true
     CueCat.valid?(".C3nZC3nZC3n2CNjXCNz0DxnY.cGen.ENr7CNT3Chz3ENj1CG.").should be_true
 
     CueCat.new(".C3nZC3nZC3n2CNjXCNz0DxnY.cGen.ENr7CNT3Chz3ENj1CG.").valid?.should be_true
+
+    # UPC
+    CueCat.valid?(".C3nZC3nZC3n2CNjXCNz0DxnY.fHmc.DxbXDhb0Dhf7ChbY.").should be_true
   end
 
   it "should correctly detect invalid codes" do
@@ -42,6 +46,12 @@ describe "The CueCat class" do
     CueCat.new(".C3nZC3nZC3n2CNjXCNz0DxnY.cGf2.ENr7C3j3C3f7Dxr7DxzYDNnZ.").ean?.should be_false
 
     CueCat.ean?(".C3nZC3nZC3n2CNjXCNz0DxnY.cGen.ENr7CNT3Chz3ENj1CG.").should be_true
+  end
+
+  it "should correctly detect UPC12 codes" do
+    CueCat.new(".C3nZC3nZC3n2CNjXCNz0DxnY.fHmc.DxbXDhb0Dhf7ChbY.").upc?.should be_true
+
+    CueCat.upc?(".C3nZC3nZC3n2CNjXCNz0DxnY.fHmc.DxbXDhb0Dhf7ChbY.").should be_true
   end
 
 end
